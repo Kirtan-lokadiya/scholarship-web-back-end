@@ -7,6 +7,7 @@ const scholarroute = require("./routes/addscholarshiproute");
 const admin_signup = require("./routes/admin_signup");
 const admin_login = require("./routes/admin_login");
 const view_scholarship = require("./routes/view_scholarship");
+const approval = require("./routes/approval");
 const app = express();
 app.use(cors());
 
@@ -20,6 +21,7 @@ app.use("/", scholarroute);
 app.use("/admin", admin_signup);
 app.use("/admin", admin_login);
 app.use("/", view_scholarship);
+app.use("/", approval);
 
 
 const port = process.env.PORT || 8080;

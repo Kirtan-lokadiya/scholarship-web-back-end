@@ -8,32 +8,31 @@ var admin_signup = new mongoose.Schema({
   last_name: {
     type: String,
     required: true,
-
   },
   organization_name: {
     type: String,
     required: true,
-
   },
   email: {
     type: String,
     required: true,
-
   },
   password: {
     type: String,
     required: true,
-
   },
   institute_type: {
     type: String,
     required: true,
-
   },
   approvalStatus: {
     type: String,
-    enum: ["pending", "approved", "rejected"],
-    default: "pending",
+    enum: ["Pending", "Approve", "Reject"],
+    default: "Pending",
+  },
+  signupDate: {
+    type: Date,
+    default: Date.now, // Set default value to the current date
   },
 });
 
