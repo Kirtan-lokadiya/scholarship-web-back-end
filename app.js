@@ -1,17 +1,26 @@
 const express = require("express");
-require('dotenv').config();
-
+const cors = require('cors');
 
 const connectDB = require("./db/connect");
-
-
+const bodyParser = require("body-parser");
+const scholarroute = require("./routes/addscholarshiproute");
+const admin_signup = require("./routes/admin_signup");
+const admin_login = require("./routes/admin_login");
+const view_scholarship = require("./routes/view_scholarship");
 const app = express();
-const port = process.env.PORT || 8080;
+app.use(cors());
 
-// Connect to the database
+require('dotenv').config();
+
+app.use(bodyParser.json());
+
 connectDB();
 
+app.use("/", scholarroute);
+app.use("/admin", admin_signup);
+app.use("/admin", admin_login);
+app.use("/", view_scholarship);
 
 
-// Start the express server
+const port = process.env.PORT || 8080;
 app.listen(port, () => console.log(`Server running on port ${port} at http://localhost:${port}`));
