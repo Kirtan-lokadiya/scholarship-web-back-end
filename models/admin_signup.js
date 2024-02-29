@@ -29,7 +29,12 @@ var admin_signup = new mongoose.Schema({
     type: String,
     required: true,
 
-  }
+  },
+  approvalStatus: {
+    type: String,
+    enum: ["pending", "approved", "rejected"],
+    default: "pending",
+  },
 });
 
 module.exports = mongoose.model("Admin_signup", admin_signup);

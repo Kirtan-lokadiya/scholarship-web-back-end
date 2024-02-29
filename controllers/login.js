@@ -1,6 +1,5 @@
-require('dotenv').config();
+// loginData controller
 const users = require("../models/admin_signup");
-// const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
 const loginData = async (req, res) => {
@@ -17,14 +16,17 @@ const loginData = async (req, res) => {
       return res.status(401).json({ message: "Invalid email or password" });
     }
 
-    // const token = jwt.sign({ id: user.id }, process.env.SECRET_KEY, {
-    //   expiresIn: "1h",
-    // });
+    if (user.approvalStatus === "pending") {
+      return res.status(401).json({ message: "Your account is pending approval" });
+    } else if (user.approvalStatus === "rejected") {
+      return res.status(401).json({ message: "Your account has been rejected" });
+    }
+
+    // Continue with the login logic...
 
     res.json({
       message: "Login successful",
       success: true,
-    //   token,
       email: user.email,
     });
   } catch (error) {

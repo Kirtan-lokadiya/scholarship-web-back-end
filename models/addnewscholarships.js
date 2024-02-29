@@ -37,7 +37,7 @@ const ScholarshipSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  instituteType: {
+  organizationType: {
     type: String,
     required: true,
   },
@@ -45,11 +45,7 @@ const ScholarshipSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  approvalStatus: {
-    type: String,
-    enum: ["pending", "approved", "rejected"],
-    default: "pending",
-  },
+ 
 });
 
 module.exports = mongoose.model("Scholarships", ScholarshipSchema);
