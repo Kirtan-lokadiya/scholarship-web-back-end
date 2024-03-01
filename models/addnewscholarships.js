@@ -45,7 +45,12 @@ const ScholarshipSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
- 
+  addedBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Admin_signup",
+    required: true,
+  },
+  activeMonths: [String], // Array to store the active months for the scholarship
 });
 
 module.exports = mongoose.model("Scholarships", ScholarshipSchema);
