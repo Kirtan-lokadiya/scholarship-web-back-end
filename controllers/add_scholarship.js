@@ -19,6 +19,7 @@ add_scholarship.post('/addscholarship', authenticateToken, async (req, res) => {
     organizationType,
     awardAmount,
     activeMonths,
+    url,
   } = req.body;
 
   try {
@@ -40,6 +41,7 @@ add_scholarship.post('/addscholarship', authenticateToken, async (req, res) => {
       awardAmount,
       addedBy,
       activeMonths,
+      url,
     });
 
     // Save the scholarship to the database
