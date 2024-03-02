@@ -13,10 +13,6 @@ const authenticateToken = (req, res, next) => {
       return res.status(403).json({ message: 'Forbidden' });
     }
 
-    // Log the decoded token for debugging
-    console.log('Decoded Token:', decodedToken);
-
-    // Set the decoded token on req.user
     req.user = decodedToken;
     next();
   });
