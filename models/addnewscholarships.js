@@ -38,6 +38,10 @@ const ScholarshipSchema = new mongoose.Schema({
   organizationType: {
     type: String,
   },
+  BasedOnScholarship: {
+    type: String,
+    required: true,
+  },
 
   awardAmount: {
     type: Number,
