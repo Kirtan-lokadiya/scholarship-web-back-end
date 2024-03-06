@@ -16,11 +16,11 @@ const loginData = async (req, res) => {
       return res.status(401).json({ message: "Invalid email or password" });
     }
 
-    // if (user.approvalStatus === "Pending") {
-    //   return res.status(200).json({ message: "Your account is pending approval" });
-    // } else if (user.approvalStatus === "Rejected") {
-    //   return res.status(200).json({ message: "Your account has been rejected" });
-    // }
+    if (user.approvalStatus === "Pending") {
+      return res.status(200).json({ message: "Your account is pending approval" });
+    } else if (user.approvalStatus === "Rejected") {
+      return res.status(200).json({ message: "Your account has been rejected" });
+    }
 
     // Continue with the login logic...
 
